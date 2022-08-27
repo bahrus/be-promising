@@ -10,7 +10,7 @@ be-promising provides this capability.
 }'>
 ```
 
-Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192)
+Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192).
 
 For this to work, be-decorated adopts a convention of using property "resolved" / event "resolved-changed" to indicate when it has "done its thing", whatever that is.
 
@@ -19,14 +19,14 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 ```html
 <input be-promising='{
     "be":[ "typed", {
-        "clonable": {
-            "clonableSettings": "..."
-        },
-        "delible": {
-            "delibleSettings": "..."
-        }
+            "clonable": {
+                "clonableSettings": "..."
+            },
+            "delible": {
+                "delibleSettings": "..."
+            }
     }]
 }'>
 ```
 
-This "resolves" the "be-typed" behavior first, then launches be-clonable, de-lible in parallel.
+This "resolves" the "be-typed" behavior first, then launches be-clonable, be-delible in parallel.

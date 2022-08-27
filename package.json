@@ -2,15 +2,40 @@
   "name": "be-promising",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "be-promising.js",
+  "module": "be-promising.js",
+  "type": "module",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "custom-element",
+    "custom-elements"
+  ],
+  "exports":{
+    ".": "./be-promising.js"
+  },
+  "files": [
+    "*.*"
+  ],
+  "types": "./types.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node node_modules/may-it-serve/serve.js",
+    "package-check": "package-check"
+  },
+  "dependencies": {
+    "be-decorated": "0.0.132",
+    "be-hive": "0.0.55"
+  },
+  "devDependencies": {
+    "may-it-serve": "0.0.2",
+    "@skypack/package-check": "0.2.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahrus/be-promising.git"
   },
-  "author": "",
+  "author": "Bruce Anderson <anderson.bruce.b@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bahrus/be-promising/issues"

@@ -1,6 +1,6 @@
 # be-promising
 
-be-decorated be-hiviors provide the ability to apply multiple cross-cutting behaviors to a single element.  Sometimes, though, we need to apply them in a particular order.
+[be-decorated](https://github.com/bahrus/be-decorated) [be-hiviors](https://github.com/bahrus/be-hive) provide the ability to apply multiple cross-cutting behaviors to a single element.  Sometimes, though, we need to apply them in a particular order.
 
 be-promising provides this capability.
 

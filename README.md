@@ -11,3 +11,7 @@ be-promising provides this capability.
     "beDelible": true,
 ]'>
 ```
+
+Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192)
+
+For this to work, be-decorated adopts a convention of using property "resolved" / event "resolved-changed" to indicate when it has "done its thing", whatever that is.

@@ -3,11 +3,12 @@ import {register} from "be-hive/register.js";
 import {BePromisingActions, BePromisingProps, BePromisingVirtualProps, Instruction} from './types';
 import {camelToLisp} from 'trans-render/lib/camelToLisp.js';
 
-export class BePromising implements BePromisingActions{
+export class BePromising extends EventTarget implements BePromisingActions{
     async onBe({be, proxy}: this){
         for(const instruction of be){
             await this.doInstruction(proxy, instruction);
         }
+        proxy.resolved = true;
     }
 
     doInstruction(proxy: BePromisingVirtualProps & Element, instruction: Instruction): Promise<void>{

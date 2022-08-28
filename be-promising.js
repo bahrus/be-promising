@@ -1,11 +1,12 @@
 import { define } from 'be-decorated/be-decorated.js';
 import { register } from "be-hive/register.js";
 import { camelToLisp } from 'trans-render/lib/camelToLisp.js';
-export class BePromising {
+export class BePromising extends EventTarget {
     async onBe({ be, proxy }) {
         for (const instruction of be) {
             await this.doInstruction(proxy, instruction);
         }
+        proxy.resolved = true;
     }
     doInstruction(proxy, instruction) {
         return new Promise(resolve => {

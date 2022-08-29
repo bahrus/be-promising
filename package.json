@@ -1,6 +1,6 @@
 {
   "name": "be-promising",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "be-promising.js",
   "module": "be-promising.js",
@@ -11,7 +11,7 @@
     "custom-element",
     "custom-elements"
   ],
-  "exports":{
+  "exports": {
     ".": "./be-promising.js"
   },
   "files": [

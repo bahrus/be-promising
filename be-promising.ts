@@ -37,12 +37,12 @@ export class BePromising extends EventTarget implements BePromisingActions{
             }
             switch(typeof instruction){
                 case 'string':
-                    proxy.setAttribute(camelToLisp(instruction), '');
+                    proxy.setAttribute('be-' + camelToLisp(instruction), '');
                     break;
                 case 'object':
                     for(const key in instruction){
                         const val = instruction[key];
-                        const ltc = camelToLisp(key);
+                        const ltc = 'be-' + camelToLisp(key);
                         proxy.setAttribute(ltc, JSON.stringify(val));
                     }
                     break;

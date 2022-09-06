@@ -1,17 +1,17 @@
 import {define, BeDecoratedProps} from 'be-decorated/be-decorated.js';
 import {register} from "be-hive/register.js";
-import {BePromisingActions, BePromisingProps, BePromisingVirtualProps, Instruction} from './types';
+import {Actions, PP, Proxy, VirtualProps, Instruction} from './types';
 import {camelToLisp} from 'trans-render/lib/camelToLisp.js';
 
-export class BePromising extends EventTarget implements BePromisingActions{
-    async onBe({be, proxy}: this){
+export class BePromising extends EventTarget implements Actions{
+    async onBe({be, proxy}: PP){
         for(const instruction of be){
             await this.doInstruction(proxy, instruction);
         }
         proxy.resolved = true;
     }
 
-    doInstruction(proxy: BePromisingVirtualProps & Element, instruction: Instruction): Promise<void>{
+    doInstruction(proxy: Proxy, instruction: Instruction): Promise<void>{
         return new Promise<void>(resolve => {
             let eventsToWaitFor: string[] = [];
             switch(typeof instruction){
@@ -52,7 +52,6 @@ export class BePromising extends EventTarget implements BePromisingActions{
     }
 }
 
-export interface BePromising extends BePromisingProps{}
 
 const tagName = 'be-promising';
 
@@ -60,7 +59,7 @@ const ifWantsToBe = 'promising';
 
 const upgrade = '*';
 
-define<BePromisingProps & BeDecoratedProps<BePromisingProps, BePromisingActions>, BePromisingActions>({
+define<VirtualProps & BeDecoratedProps<VirtualProps, Actions>, Actions>({
     config:{
         tagName,
         propDefaults:{

@@ -1,10 +1,9 @@
 {
   "name": "be-promising",
   "version": "0.0.3",
-  "description": "",
+  "description": "Apply be-decorated element decorators / behaviors in a particular order.",
   "main": "be-promising.js",
   "module": "be-promising.js",
-  "type": "module",
   "keywords": [
     "web-components",
     "web-component",
@@ -24,8 +23,8 @@
     "package-check": "package-check"
   },
   "dependencies": {
-    "be-decorated": "0.0.153",
-    "be-hive": "0.0.63"
+    "be-decorated": "0.0.157",
+    "be-hive": "0.0.65"
   },
   "devDependencies": {
     "may-it-serve": "0.0.2",

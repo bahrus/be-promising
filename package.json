@@ -18,7 +18,7 @@
   ],
   "types": "./types.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "playwright test",
     "serve": "node node_modules/may-it-serve/serve.js",
     "package-check": "package-check"
   },
@@ -28,7 +28,11 @@
   },
   "devDependencies": {
     "may-it-serve": "0.0.2",
-    "@skypack/package-check": "0.2.2"
+    "@playwright/test": "1.25.2",
+    "@skypack/package-check": "0.2.2",
+    "be-typed": "0.0.10",
+    "be-clonable": "0.0.12",
+    "be-delible": "0.0.9"
   },
   "repository": {
     "type": "git",

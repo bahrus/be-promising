@@ -50,3 +50,9 @@ This "resolves" the "be-typed" behavior first, then launches be-clonable, be-del
     import 'https://esm.run/be-promising';
 </script>
 ```
+
+## Referencing via ESM Modules:
+
+```JavaScript
+import 'be-promising/be-promising.js';
+```

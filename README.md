@@ -10,6 +10,8 @@ Size of new code in this package:
 
 <img src="http://img.badgesize.io/https://cdn.jsdelivr.net/npm/be-promising?compression=gzip">
 
+[![Playwright Tests](https://github.com/bahrus/be-promising/actions/workflows/CI.yml/badge.svg?branch=baseline)](https://github.com/bahrus/be-promising/actions/workflows/CI.yml)
+
 [be-decorated](https://github.com/bahrus/be-decorated) [be-hiviors](https://github.com/bahrus/be-hive) provide the ability to apply multiple cross-cutting behaviors to a single element.  Sometimes, though, we need to apply them in a particular order.
 
 be-promising provides this capability.

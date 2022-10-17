@@ -1,6 +1,6 @@
 {
   "name": "be-promising",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Apply be-decorated element decorators / behaviors in a particular order.",
   "main": "be-promising.js",
   "module": "be-promising.js",

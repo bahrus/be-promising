@@ -1,4 +1,4 @@
-import {define, BeDecoratedProps} from 'be-decorated/be-decorated.js';
+import {define, BeDecoratedProps} from 'be-decorated/DE.js';
 import {register} from "be-hive/register.js";
 import {Actions, PP, Proxy, VirtualProps, Instruction} from './types';
 import {camelToLisp} from 'trans-render/lib/camelToLisp.js';

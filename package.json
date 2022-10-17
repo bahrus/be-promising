@@ -23,16 +23,16 @@
     "package-check": "package-check"
   },
   "dependencies": {
-    "be-decorated": "0.0.157",
-    "be-hive": "0.0.65"
+    "be-decorated": "0.0.182",
+    "be-hive": "0.0.76"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.2",
-    "@playwright/test": "1.25.2",
+    "may-it-serve": "0.0.3",
+    "@playwright/test": "1.27.1",
     "@skypack/package-check": "0.2.2",
     "be-typed": "0.0.10",
-    "be-clonable": "0.0.12",
-    "be-delible": "0.0.9"
+    "be-clonable": "0.0.15",
+    "be-delible": "0.0.11"
   },
   "repository": {
     "type": "git",

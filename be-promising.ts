@@ -1,17 +1,29 @@
-import {define, BeDecoratedProps} from 'be-decorated/DE.js';
-import {register} from "be-hive/register.js";
-import {Actions, PP, Proxy, VirtualProps, Instruction} from './types';
+import {BE, propDefaults, propInfo} from 'be-enhanced/BE.js';
+import {BEConfig} from 'be-enhanced/types';
+import {XE} from 'xtal-element/XE.js';
+import {Actions, AllProps, AP, PAP, ProPAP, POA, Instruction} from './types';
+import {register} from 'be-hive/register.js';
 import {camelToLisp} from 'trans-render/lib/camelToLisp.js';
 
-export class BePromising extends EventTarget implements Actions{
-    async onBe({be, proxy}: PP){
-        for(const instruction of be){
-            await this.doInstruction(proxy, instruction);
-        }
-        proxy.resolved = true;
+export class BePromising extends BE<AP, Actions> implements Actions{
+    static override get beConfig(){
+        return {
+            parse: true,
+            primaryProp: 'be'
+        } as BEConfig;
     }
 
-    doInstruction(proxy: Proxy, instruction: Instruction): Promise<void>{
+    async onBe(self: this) {
+        const {be, enhancedElement} = self;
+        for(const instruction of be){
+            await this.doInstruction(enhancedElement, instruction);
+        }
+        return {
+            resolved: true,
+        }
+    }
+
+    doInstruction(enhancedElement: Element, instruction: Instruction): Promise<void>{
         return new Promise<void>(resolve => {
             let eventsToWaitFor: string[] = [];
             switch(typeof instruction){
@@ -28,7 +40,7 @@ export class BePromising extends EventTarget implements Actions{
                     break;
             }
             for(const key of eventsToWaitFor){
-                proxy.addEventListener(key, e => {
+                self.addEventListener(key, e => {
                     eventsToWaitFor = eventsToWaitFor.filter(x => x !== key);
                     if(eventsToWaitFor.length === 0){
                         resolve();
@@ -52,29 +64,26 @@ export class BePromising extends EventTarget implements Actions{
     }
 }
 
+export interface BePromising extends AllProps{}
 
 const tagName = 'be-promising';
-
 const ifWantsToBe = 'promising';
-
 const upgrade = '*';
 
-define<VirtualProps & BeDecoratedProps<VirtualProps, Actions>, Actions>({
+const xe = new XE<AP, Actions>({
     config:{
         tagName,
         propDefaults:{
-            ifWantsToBe,
-            upgrade,
-            forceVisible: ['template', 'script', 'style'],
-            virtualProps: ['be']
+            ...propDefaults,
         },
-        actions:{
+        propInfo:{
+            ...propInfo,
+        },
+        actions: {
             onBe: 'be'
         }
     },
-    complexPropDefaults:{
-        controller: BePromising
-    }
+    superclass: BePromising
 });
 
 register(ifWantsToBe, upgrade, tagName);

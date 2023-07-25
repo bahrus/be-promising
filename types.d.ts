@@ -1,23 +1,24 @@
-import {BeDecoratedProps, MinimalProxy} from 'be-decorated/types';
+import { ActionOnEventConfigs } from "trans-render/froop/types";
+import {IBE} from 'be-enhanced/types';
 
 
 export type Instruction = (string | {[key: string]: any});
 
-export interface EndUserProps{
+export interface EndUserProps extends IBE{
     be: Instruction[];
 }
-export interface VirtualProps extends EndUserProps, MinimalProxy{
+export interface AllProps extends EndUserProps{
     
 }
 
-export type Proxy = Element & VirtualProps;
+export type AP = AllProps;
 
-export interface ProxyProps extends VirtualProps{
-    proxy: Proxy
-}
+export type PAP = Partial<AP>;
 
-export type PP = ProxyProps;
+export type ProPAP = Promise<PAP>;
+
+export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
 
 export interface Actions{
-    onBe(pp: PP): void;
+    onBe(self: this): ProPAP;
 }

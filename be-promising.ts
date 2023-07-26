@@ -23,43 +23,25 @@ export class BePromising extends BE<AP, Actions> implements Actions{
         }
     }
 
-    doInstruction(enhancedElement: Element, instruction: Instruction): Promise<void>{
-        return new Promise<void>(resolve => {
-            let eventsToWaitFor: string[] = [];
-            switch(typeof instruction){
-                case 'string':
-                    eventsToWaitFor.push('be-decorated.' + camelToLisp(instruction) + '.resolved');
-                    break;
-                case 'object':
-                    if(Array.isArray(instruction)){
-                        throw 'be-promising.NI1'; //Not implemented
+    async doInstruction(enhancedElement: Element, instruction: Instruction){
+        switch(typeof instruction){
+            case 'string':
+                await (<any>enhancedElement).beEnhanced.whenResolved('be-' + instruction);
+                return;
+            case 'object':
+                if(instruction instanceof Array){
+                    for(const childInstruction of instruction){
+                        await this.doInstruction(enhancedElement, childInstruction);
                     }
+                }else{
                     for(const key in instruction){
-                        eventsToWaitFor.push('be-decorated.' + camelToLisp(key) + '.resolved');
+                        const enh = 'be-' + key;
+                        Object.assign((<any>enhancedElement).beEnhanced.by[enh], instruction[key]);
+                        await (<any>enhancedElement).beEnhanced.whenResolved(enh);
                     }
-                    break;
-            }
-            for(const key of eventsToWaitFor){
-                self.addEventListener(key, e => {
-                    eventsToWaitFor = eventsToWaitFor.filter(x => x !== key);
-                    if(eventsToWaitFor.length === 0){
-                        resolve();
-                    }
-                }, {once: true});
-            }
-            switch(typeof instruction){
-                case 'string':
-                    proxy.setAttribute('be-' + camelToLisp(instruction), '');
-                    break;
-                case 'object':
-                    for(const key in instruction){
-                        const val = instruction[key];
-                        const ltc = 'be-' + camelToLisp(key);
-                        proxy.setAttribute(ltc, JSON.stringify(val));
-                    }
-                    break;
-            }
-        });
+                }
+
+        }
 
     }
 }

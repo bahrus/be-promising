@@ -2,7 +2,7 @@ import { ActionOnEventConfigs } from "trans-render/froop/types";
 import {IBE} from 'be-enhanced/types';
 
 
-export type Instruction = (string | {[key: string]: any});
+export type Instruction = (string | {[key: string]: any} | Instruction[]);
 
 export interface EndUserProps extends IBE{
     be: Instruction[];

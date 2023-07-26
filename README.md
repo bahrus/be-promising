@@ -41,7 +41,7 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 }'>
 ```
 
-This "resolves" the "be-typed" behavior first, then launches be-clonable, be-delible in parallel.
+This "resolves" the "be-typed" behavior first, then launches be-clonable, then be-delible.
 
 ## Using from CDN:
 

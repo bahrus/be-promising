@@ -34,7 +34,7 @@
   "devDependencies": {
     "may-it-serve": "0.0.5",
     "@playwright/test": "1.36.2",
-    "be-typed": "0.0.12",
+    "be-typed": "0.0.13",
     "be-clonable": "0.0.19",
     "be-delible": "0.0.14"
   },

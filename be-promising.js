@@ -1,6 +1,7 @@
 import { BE, propDefaults, propInfo } from 'be-enhanced/BE.js';
 import { XE } from 'xtal-element/XE.js';
 import { register } from 'be-hive/register.js';
+import { lispToCamel } from 'trans-render/lib/lispToCamel.js';
 export class BePromising extends BE {
     static get beConfig() {
         return {
@@ -31,7 +32,8 @@ export class BePromising extends BE {
                 else {
                     for (const key in instruction) {
                         const enh = 'be-' + key;
-                        Object.assign(enhancedElement.beEnhanced.by[enh], instruction[key]);
+                        const enhancement = lispToCamel(enh);
+                        Object.assign(enhancedElement.beEnhanced.by[enhancement], instruction[key]);
                         await enhancedElement.beEnhanced.whenResolved(enh);
                     }
                 }

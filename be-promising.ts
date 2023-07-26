@@ -4,6 +4,7 @@ import {XE} from 'xtal-element/XE.js';
 import {Actions, AllProps, AP, PAP, ProPAP, POA, Instruction} from './types';
 import {register} from 'be-hive/register.js';
 import {camelToLisp} from 'trans-render/lib/camelToLisp.js';
+import { lispToCamel } from 'trans-render/lib/lispToCamel.js';
 
 export class BePromising extends BE<AP, Actions> implements Actions{
     static override get beConfig(){
@@ -36,7 +37,8 @@ export class BePromising extends BE<AP, Actions> implements Actions{
                 }else{
                     for(const key in instruction){
                         const enh = 'be-' + key;
-                        Object.assign((<any>enhancedElement).beEnhanced.by[enh], instruction[key]);
+                        const enhancement = lispToCamel(enh);
+                        Object.assign((<any>enhancedElement).beEnhanced.by[enhancement], instruction[key]);
                         await (<any>enhancedElement).beEnhanced.whenResolved(enh);
                     }
                 }

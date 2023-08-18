@@ -1,15 +1,11 @@
 # be-promising
 
-<a href="https://nodei.co/npm/be-promising/"><img src="https://nodei.co/npm/be-promising.png"></a>
+[![NPM version](https://badge.fury.io/js/be-promising.png)](http://badge.fury.io/js/be-promising)
 [![How big is this package in your project?](https://img.shields.io/bundlephobia/minzip/be-promising?style=for-the-badge)](https://bundlephobia.com/result?p=be-promising)
-
-Size of new code in this package:
-
 <img src="http://img.badgesize.io/https://cdn.jsdelivr.net/npm/be-promising?compression=gzip">
-
 [![Playwright Tests](https://github.com/bahrus/be-promising/actions/workflows/CI.yml/badge.svg?branch=baseline)](https://github.com/bahrus/be-promising/actions/workflows/CI.yml)
 
-[be-enhanced](https://github.com/bahrus/be-decorated) [be-hiviors](https://github.com/bahrus/be-hive) provide the ability to apply multiple cross-cutting enhancements to a single element.  Sometimes, though, we need to apply them in a particular order.
+[be-enhanced](https://github.com/bahrus/be-enhanced) [be-hiviors](https://github.com/bahrus/be-hive) provide the ability to apply multiple cross-cutting enhancements to a single element.  Sometimes, though, we need to apply them in a particular order.
 
 be-promising provides this capability.
 

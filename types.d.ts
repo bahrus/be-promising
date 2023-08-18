@@ -21,4 +21,5 @@ export type POA = [PAP | undefined, ActionOnEventConfigs<PAP, Actions>];
 
 export interface Actions{
     onBe(self: this): ProPAP;
+    onResolved(self: this): void;
 }

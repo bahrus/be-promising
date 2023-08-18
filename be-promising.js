@@ -39,6 +39,10 @@ export class BePromising extends BE {
                 }
         }
     }
+    async onResolved(self) {
+        const { enhancedElement } = self;
+        await enhancedElement.beEnhanced.whenDetached('be-promising');
+    }
 }
 const tagName = 'be-promising';
 const ifWantsToBe = 'promising';
@@ -53,7 +57,8 @@ const xe = new XE({
             ...propInfo,
         },
         actions: {
-            onBe: 'be'
+            onBe: 'be',
+            onResolved: 'resolved'
         }
     },
     superclass: BePromising

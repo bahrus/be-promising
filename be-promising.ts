@@ -46,6 +46,11 @@ export class BePromising extends BE<AP, Actions> implements Actions{
         }
 
     }
+
+    async onResolved(self: this){
+        const {enhancedElement} = self;
+        await (<any>enhancedElement).beEnhanced.whenDetached('be-promising');
+    }
 }
 
 export interface BePromising extends AllProps{}
@@ -64,7 +69,8 @@ const xe = new XE<AP, Actions>({
             ...propInfo,
         },
         actions: {
-            onBe: 'be'
+            onBe: 'be',
+            onResolved: 'resolved'
         }
     },
     superclass: BePromising

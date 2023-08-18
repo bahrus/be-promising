@@ -1,9 +1,6 @@
 # be-promising
 
 <a href="https://nodei.co/npm/be-promising/"><img src="https://nodei.co/npm/be-promising.png"></a>
-
-Size of package, including custom element behavior framework (be-decorated):
-
 [![How big is this package in your project?](https://img.shields.io/bundlephobia/minzip/be-promising?style=for-the-badge)](https://bundlephobia.com/result?p=be-promising)
 
 Size of new code in this package:
@@ -26,7 +23,26 @@ Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563
 
 For this to work, be-decorated adopts a convention of using property "resolved" / event "resolved" to indicate when it has "done its thing", whatever that is.
 
-## Specifying props / parallel applying
+## Applying settings
+
+```html
+<input be-promising='{
+    "be":[ "typed", 
+        {
+            "clonable": {
+                "clonableSettings": "..."
+            },
+        },
+        {
+            "delible": {
+                "delibleSettings": "..."
+            }
+        }
+    ]
+}'>
+```
+
+## Apply promises in parallel [TODO]
 
 ```html
 <input be-promising='{
@@ -42,6 +58,18 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 ```
 
 This "resolves" the "be-typed" behavior first, then launches be-clonable, then be-delible.
+
+## Running locally
+
+Any web server than can serve static files will do, but...
+
+1.  Install git.
+2.  Do a git clone or a git fork of repository https://github.com/bahrus/be-promising
+3.  Install node.js
+4.  Open command window to folder where you cloned this repo.
+5.  > npm install
+6.  > npm run serve
+7.  Open http://localhost:3030/demo in a modern browser.
 
 ## Using from CDN:
 

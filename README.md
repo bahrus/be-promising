@@ -45,9 +45,13 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 ## Specify attribute value instead:
 
 ```html
-<input be-promising='{
-    "be":[  ]
+<label for=url>Enter Url</label>
+<input id=url be-promising='{
+    "be": [{
+        "committed": "to-change"
+    }]
 }'>
+<button id=to-change>Search</button>
 ```
 
 ### Apply some enhancements in parallel [TODO]

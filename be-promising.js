@@ -33,7 +33,19 @@ export class BePromising extends BE {
                     for (const key in instruction) {
                         const enh = 'be-' + key;
                         const enhancement = lispToCamel(enh);
-                        Object.assign(enhancedElement.beEnhanced.by[enhancement], instruction[key]);
+                        const val = instruction[key];
+                        switch (typeof val) {
+                            case 'string':
+                                enhancedElement.beEnhanced.by[enhancement] = val;
+                                break;
+                            case 'object':
+                                if (Array.isArray(val))
+                                    throw 'NI';
+                                Object.assign(enhancedElement.beEnhanced.by[enhancement], val);
+                                break;
+                            default:
+                                throw 'NI';
+                        }
                         await enhancedElement.beEnhanced.whenResolved(enh);
                     }
                 }

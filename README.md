@@ -5,6 +5,10 @@
 <img src="http://img.badgesize.io/https://cdn.jsdelivr.net/npm/be-promising?compression=gzip">
 [![Playwright Tests](https://github.com/bahrus/be-promising/actions/workflows/CI.yml/badge.svg?branch=baseline)](https://github.com/bahrus/be-promising/actions/workflows/CI.yml)
 
+be-promising aims to address two tricky issues when it comes to custom enhancements:
+
+## Issue 1:  Applying multiple enhancements in a proscribed order.
+
 [be-enhanced](https://github.com/bahrus/be-enhanced) [be-hiviors](https://github.com/bahrus/be-hive) provide the ability to apply multiple cross-cutting enhancements to a single element.  Sometimes, though, we need to apply them in a particular order.
 
 be-promising provides this capability.
@@ -19,7 +23,7 @@ Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563
 
 For this to work, be-decorated adopts a convention of using property "resolved" / event "resolved" to indicate when it has "done its thing", whatever that is.
 
-## Applying settings
+### Applying settings
 
 ```html
 <input be-promising='{
@@ -38,7 +42,7 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 }'>
 ```
 
-## Apply promises in parallel [TODO]
+### Apply some enhancements in parallel [TODO]
 
 ```html
 <input be-promising='{
@@ -53,7 +57,15 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 }'>
 ```
 
-This "resolves" the "be-typed" behavior first, then launches be-clonable, then be-delible.
+This would "resolve" the "be-typed" enhancement first, then launch be-clonable and be-delible.
+
+## Issue 2
+
+One problem I've been struggling with is how to take DOM in the live DOM tree, and (declaratively) [define](https://github.com/bahrus/be-definitive) a web component out of it.  The three fundamental questions to grapple with:
+
+1.  When to take the "snapshot" of the dom, and turn it into a template.
+2.  What content it is safe to remove from that template in order to optimize the clone.
+3.  How to capture the needed element enhancements when some of those enhancements are only applicable to hydrating from server-rendered content.
 
 ## Running locally
 

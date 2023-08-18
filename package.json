@@ -36,6 +36,7 @@
     "@playwright/test": "1.37.1",
     "be-typed": "0.0.13",
     "be-clonable": "0.0.19",
+    "be-committed": "0.0.19",
     "be-delible": "0.0.14"
   },
   "repository": {

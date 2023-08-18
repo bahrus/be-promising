@@ -42,6 +42,14 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 }'>
 ```
 
+## Specify attribute value instead:
+
+```html
+<input be-promising='{
+    "be":[  ]
+}'>
+```
+
 ### Apply some enhancements in parallel [TODO]
 
 ```html

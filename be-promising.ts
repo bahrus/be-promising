@@ -60,10 +60,22 @@ export class BePromising extends BE<AP, Actions> implements Actions{
     }
 
     async onResolved(self: this){
-        const {enhancedElement} = self;
+        const {enhancedElement, be} = self;
+        if(enhancedElement.hasAttribute('be-promising')){
+            const guid = 'a' + counter++;
+            enhancedElement.setAttribute('data-bpguid', guid);
+            const rn = enhancedElement.getRootNode() as any;
+            if(rn[enhancementGuid] === undefined) rn[enhancementGuid] = {};
+            rn[enhancementGuid][guid] = be;
+
+        }
         await (<any>enhancedElement).beEnhanced.whenDetached('be-promising');
     }
 }
+
+export const enhancementGuid = 'QA7Ey8RiUuHVDZ3lw';
+
+let counter = 0;
 
 export interface BePromising extends AllProps{}
 

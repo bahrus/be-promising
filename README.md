@@ -54,6 +54,8 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 <button id=to-change>Search</button>
 ```
 
+
+
 ### Apply some enhancements in parallel [TODO]
 
 ```html

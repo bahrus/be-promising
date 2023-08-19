@@ -52,10 +52,20 @@ export class BePromising extends BE {
         }
     }
     async onResolved(self) {
-        const { enhancedElement } = self;
+        const { enhancedElement, be } = self;
+        if (enhancedElement.hasAttribute('be-promising')) {
+            const guid = 'a' + counter++;
+            enhancedElement.setAttribute('data-bpguid', guid);
+            const rn = enhancedElement.getRootNode();
+            if (rn[enhancementGuid] === undefined)
+                rn[enhancementGuid] = {};
+            rn[enhancementGuid][guid] = be;
+        }
         await enhancedElement.beEnhanced.whenDetached('be-promising');
     }
 }
+export const enhancementGuid = 'QA7Ey8RiUuHVDZ3lw';
+let counter = 0;
 const tagName = 'be-promising';
 const ifWantsToBe = 'promising';
 const upgrade = '*';

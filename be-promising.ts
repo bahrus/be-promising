@@ -67,7 +67,6 @@ export class BePromising extends BE<AP, Actions> implements Actions{
             const rn = enhancedElement.getRootNode() as any;
             if(rn[enhancementGuid] === undefined) rn[enhancementGuid] = {};
             rn[enhancementGuid][guid] = be;
-
         }
         await (<any>enhancedElement).beEnhanced.whenDetached('be-promising');
     }

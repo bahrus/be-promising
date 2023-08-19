@@ -81,6 +81,8 @@ One problem I've been struggling with is how to take DOM in the live DOM tree, a
 2.  What content it is safe to remove from that template in order to optimize the clone.
 3.  How to capture the needed element enhancements when some of those enhancements are only applicable to hydrating from server-rendered content.
 
+be-promising leaves behind a "breadcrumb" for server-rendered HTML, using guid's.  Used by be-definitive [TODO].
+
 ## Running locally
 
 Any web server than can serve static files will do, but...

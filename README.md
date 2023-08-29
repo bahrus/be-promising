@@ -60,11 +60,11 @@ And in practice, it is also quite ergonomic to edit these declarative web compon
 
 ## Prereq [TODO]
 
-We can specify prerequisites for inner content enhancements to finish:
+We can specify prerequisites for inner content enhancements to finish first before scheduling the tasks set in the "be" property:
 
 ```html
 <div be-promising='{
-    "awaitForInnerEnhancementsToResolve": ["committed", "typed", "clonable"]
+    "waitForInnerEnhancementsToResolve": ["committed", "typed", "clonable"]
 }'>
     <input be-committed>
 </div>

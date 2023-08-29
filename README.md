@@ -64,9 +64,9 @@ We can specify prerequisites for inner content enhancements to finish:
 
 ```html
 <div be-promising='{
-    "awaitForInnerEnhancementsToResolve": ["commited", "typed", "clonable"]
+    "awaitForInnerEnhancementsToResolve": ["committed", "typed", "clonable"]
 }'>
- ...
+    <input be-committed>
 </div>
 ```
 

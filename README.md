@@ -42,6 +42,10 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 }'>
 ```
 
+Editing JSON-in-html can be rather error prone. A [VS Code extension](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) is available to help with that, and is compatible with web versions of VSCode.
+
+And in practice, it is also quite ergonomic to edit these declarative web components in a *.mjs file that executes in node as the file changes, and compiles to an html file via the [may-it-be](https://github.com/bahrus/may-it-be) compiler. This allows the attributes to be editable with JS-like syntax. Typescript 4.6 supports compiling mts to mjs files, which then allows typing of the attributes. 
+
 ## Specify attribute value instead:
 
 ```html
@@ -54,6 +58,17 @@ For this to work, be-decorated adopts a convention of using property "resolved" 
 <button id=to-change>Search</button>
 ```
 
+## Prereq [TODO]
+
+We can specify prerequisites for inner content enhancements to finish:
+
+```html
+<div be-promising='{
+    "awaitForInnerEnhancementsToResolve": ["commited", "typed", "clonable"]
+}'>
+ ...
+</div>
+```
 
 
 ### Apply some enhancements in parallel [TODO]

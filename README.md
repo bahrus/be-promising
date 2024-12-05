@@ -1,4 +1,4 @@
-# be-promising [TODO]
+# be-promising (🤞) [TODO]
 
 [![NPM version](https://badge.fury.io/js/be-promising.png)](http://badge.fury.io/js/be-promising)
 [![How big is this package in your project?](https://img.shields.io/bundlephobia/minzip/be-promising?style=for-the-badge)](https://bundlephobia.com/result?p=be-promising)
@@ -13,7 +13,19 @@
 be-promising provides this capability.
 
 ```html
-<input defer-be-typed defer-be-clonable defer-be-delible be-promising='be-typed be-clonable be-delible'>
+<input 
+    defer-be-typed
+    be-typed
+    defer-be-clonable
+    be-clonable
+    defer-be-delible
+    be-delible
+    be-promising='be-typed be-clonable be-delible'>
+```
+
+or
+```html
+<input defer-⚙️ defer-⿻ defer-⌫ ⚙️ ⿻ ⌫ 🤞="⚙️ ⿻ ⌫">
 ```
 
 Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192).

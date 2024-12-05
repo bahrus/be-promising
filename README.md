@@ -1,27 +1,26 @@
-# be-promising
+# be-promising [TODO]
 
 [![NPM version](https://badge.fury.io/js/be-promising.png)](http://badge.fury.io/js/be-promising)
 [![How big is this package in your project?](https://img.shields.io/bundlephobia/minzip/be-promising?style=for-the-badge)](https://bundlephobia.com/result?p=be-promising)
 <img src="http://img.badgesize.io/https://cdn.jsdelivr.net/npm/be-promising?compression=gzip">
 [![Playwright Tests](https://github.com/bahrus/be-promising/actions/workflows/CI.yml/badge.svg?branch=baseline)](https://github.com/bahrus/be-promising/actions/workflows/CI.yml)
 
-be-promising aims to address two tricky issues when it comes to custom enhancements:
 
-## Issue 1:  Applying multiple enhancements in a proscribed order.
+## Applying multiple enhancements in a proscribed order.
 
 [be-enhanced](https://github.com/bahrus/be-enhanced) [be-hiviors](https://github.com/bahrus/be-hive) provide the ability to apply multiple cross-cutting enhancements to a single element.  Sometimes, though, we need to apply them in a particular order.
 
 be-promising provides this capability.
 
 ```html
-<input be-promising='{
-    "be":[ "typed", "clonable", "delible"]
-}'>
+<input defer-be-typed defer-be-clonable defer-be-delible be-promising='be-typed be-clonable be-delible'>
 ```
 
 Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192).
 
 For this to work, be-decorated adopts a convention of using property "resolved" / event "resolved" to indicate when it has "done its thing", whatever that is.
+
+What this does
 
 ### Applying settings
 

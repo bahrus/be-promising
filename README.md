@@ -18,84 +18,16 @@ be-promising provides this capability.
 
 Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192).
 
-For this to work, be-decorated adopts a convention of using property "resolved" / event "resolved" to indicate when it has "done its thing", whatever that is.
+What this does:
 
-What this does
-
-### Applying settings
-
-```html
-<input be-promising='{
-    "be":[ "typed", 
-        {
-            "clonable": {
-                "clonableSettings": "..."
-            },
-        },
-        {
-            "delible": {
-                "delibleSettings": "..."
-            }
-        }
-    ]
-}'>
-```
-
-Editing JSON-in-html can be rather error prone. A [VS Code extension](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) is available to help with that, and is compatible with web versions of VSCode.
-
-And in practice, it is also quite ergonomic to edit these declarative web components in a *.mjs file that executes in node as the file changes, and compiles to an html file via the [may-it-be](https://github.com/bahrus/may-it-be) compiler. This allows the attributes to be editable with JS-like syntax. Typescript 4.6 supports compiling mts to mjs files, which then allows typing of the attributes. 
-
-## Specify attribute value instead:
-
-```html
-<label for=url>Enter Url</label>
-<input id=url be-promising='{
-    "be": [{
-        "committed": "to-change"
-    }]
-}'>
-<button id=to-change>Search</button>
-```
-
-## Prereq [TODO]
-
-We can specify prerequisites for inner content enhancements to finish first before scheduling the tasks set in the "be" property:
-
-```html
-<div be-promising='{
-    "waitForInnerEnhancementsToResolve": ["committed", "typed", "clonable"]
-}'>
-    <input be-committed>
-</div>
-```
+1.  Looks for be-hive tag, finds corresponding mount observer script elements (MOSEs)
+2.  In the sequence specified in the attribute:
+    1.  Removes the defer-[base] attribute
+    2.  From the MOSE, gets the emc for that attribute
+    3.  Does a *.whenResolved
 
 
-### Apply some enhancements in parallel [TODO]
 
-```html
-<input be-promising='{
-    "be":[ "typed", {
-            "clonable": {
-                "clonableSettings": "..."
-            },
-            "delible": {
-                "delibleSettings": "..."
-            }
-    }]
-}'>
-```
-
-This would "resolve" the "be-typed" enhancement first, then launch be-clonable and be-delible.
-
-## Issue 2
-
-One problem I've been struggling with is how to take DOM in the live DOM tree, and (declaratively) [define](https://github.com/bahrus/be-definitive) a web component out of it.  The three fundamental questions to grapple with:
-
-1.  When to take the "snapshot" of the dom, and turn it into a template.
-2.  What content it is safe to remove from that template in order to optimize the clone.
-3.  How to capture the needed element enhancements when some of those enhancements are only applicable to hydrating from server-rendered content.
-
-be-promising leaves behind a "breadcrumb" for server-rendered HTML, using guid's.  Used by be-definitive [TODO].
 
 ## Running locally
 

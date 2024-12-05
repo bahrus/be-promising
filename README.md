@@ -37,6 +37,7 @@ What this does:
     1.  Removes the defer-[base] attribute
     2.  From the MOSE, gets the emc for that attribute
     3.  Does a *.whenResolved
+    4.  Rinse and repeat
 
 
 

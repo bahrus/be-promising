@@ -14,7 +14,6 @@ be-promising provides this capability.
 
 ```html
 <input 
-    defer-be-typed
     be-typed
     defer-be-clonable
     be-clonable
@@ -25,7 +24,7 @@ be-promising provides this capability.
 
 or
 ```html
-<input defer-⚙️ defer-⿻ defer-⌫ ⚙️ ⿻ ⌫ 🤞="⚙️ ⿻ ⌫">
+<input ⚙️ defer-⿻ ⿻ defer-⌫ ⌫ 🤞="⚙️ ⿻ ⌫">
 ```
 
 Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192).
@@ -34,12 +33,10 @@ What this does:
 
 1.  Looks for be-hive tag, finds corresponding mount observer script elements (MOSEs)
 2.  In the sequence specified in the attribute:
-    1.  Removes the defer-[base] attribute
+    1.  If applicable, removes the defer-[base] attribute
     2.  From the MOSE, gets the emc for that attribute
-    3.  Does a *.whenResolved
+    3.  Awaits *.whenResolved
     4.  Rinse and repeat
-
-
 
 
 ## Running locally

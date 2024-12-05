@@ -13,18 +13,19 @@
 be-promising provides this capability.
 
 ```html
-<input 
+<label 
     be-typed
     defer-be-clonable
     be-clonable
     defer-be-delible
     be-delible
-    be-promising='be-typed be-clonable be-delible'>
+    be-promising='be-typed be-clonable be-delible'>[Specify Name]
+</label>
 ```
 
 or
 ```html
-<input ⚙️ defer-⿻ ⿻ defer-⌫ ⌫ 🤞="⚙️ ⿻ ⌫">
+<label ⚙️ defer-⿻ ⿻ defer-⌫ ⌫ 🤞="⚙️ ⿻ ⌫">[Specify Name]</label>
 ```
 
 Idea influenced by [this discussion](https://twitter.com/dan_abramov/status/1563307506482696192).
